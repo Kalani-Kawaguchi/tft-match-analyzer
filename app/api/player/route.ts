@@ -20,7 +20,7 @@ export async function GET(req: Request) {
 
   try {
     const account = await getAccountByRiotId(gameName, tagLine);
-    const matchIds = await getTftMatchIds(account.puuid, 1);
+    const matchIds = await getTftMatchIds(account.puuid, 15);
     const matches = await Promise.all(matchIds.map((id) => getTftMatch(id)));
 
     const players = matches
